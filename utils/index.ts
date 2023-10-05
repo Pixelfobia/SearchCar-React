@@ -46,7 +46,7 @@ export async function fetchCars(filters: FilterProps) {
 
   // Set the required headers for the API request
   const headers: HeadersInit = {
-    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
+    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "hrjavascript-mastery",
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 
@@ -73,7 +73,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   url.searchParams.append('modelFamily', model.split(" ")[0]);
   url.searchParams.append('zoomType', 'fullscreen');
   url.searchParams.append('modelYear', `${year}`);
-  // url.searchParams.append('zoomLevel', zoomLevel);
+  url.searchParams.append('zoomLevel', zoomLevel);
   url.searchParams.append('angle', `${angle}`);
 
   return `${url}`;
